@@ -79,14 +79,35 @@
       border: 0;
       border-radius: 10px;
     }
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .reviews {
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    .reviews h2 {
+      color: #8e44ad;
+      margin-bottom: 10px;
+    }
     footer {
       background: #333;
       color: white;
       padding: 20px;
       text-align: center;
     }
-    footer p {
+    footer p, footer a {
       margin: 5px 0;
+      color: white;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -95,6 +116,13 @@
     <h1>BIGLAMBA Salon</h1>
     <p>Hair, Nails & Beauty Services</p>
   </header>
+
+  <!-- WhatsApp Book Now Button -->
+ <section style="text-align:center;">
+  <a href="https://wa.me/2347040748910" target="_blank" class="whatsapp-btn">
+    💬 Book Now on WhatsApp
+  </a>
+</section>
 
   <!-- Search & Filter -->
   <div class="search-filter">
@@ -164,46 +192,25 @@
     </div>
   </div>
 
-  <!-- Find Us Section with Placeholder Map -->
+  <!-- Customer Reviews Section -->
+  <section class="reviews">
+    <h2>Customer Reviews</h2>
+    <p>⭐⭐⭐⭐⭐ “Best salon in town! My braids lasted so long.” – Chioma</p>
+    <p>⭐⭐⭐⭐ “Great service and friendly staff.” – Tunde</p>
+    <p>⭐⭐⭐⭐⭐ “I love my nails, thank you BIGLAMBA!” – Amaka</p>
+  </section>
+
+  <!-- Find Us Section with Map -->
   <section class="find-us">
     <h2>Find Us</h2>
     <p>Click or move the map to see our location</p>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3154035873904!2d7.0658163!3d6.2220768999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104382f1255302e1%3A0x6526ad545c883b6c!2sKizzy%20Iconic%20Unisex%20Salon!5e0!3m2!1sen!2sng!4v1757927602393!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer with Social Media Links -->
   <footer>
     <p><strong>Address:</strong> 45 Beauty Avenue, Anambara ifite awka, Nigeria</p>
     <p><strong>Phone:</strong> +234 901 234 5678</p>
     <p><strong>Opening Hours:</strong> Mon-Sat (9am - 9pm), Sun (12pm - 6pm)</p>
-    <p>&copy; 2025 BIGLAMBA Salon. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript for Search & Filter -->
-  <script>
-    const searchInput = document.getElementById('search');
-    const filterSelect = document.getElementById('filter');
-    const serviceCards = document.querySelectorAll('.card');
-
-    function filterServices() {
-      const searchText = searchInput.value.toLowerCase();
-      const filterValue = filterSelect.value;
-
-      serviceCards.forEach(card => {
-        const name = card.querySelector('h3').textContent.toLowerCase();
-        const category = card.getAttribute('data-category');
-
-        if ((filterValue === "all" || category === filterValue) &&
-            name.includes(searchText)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-
-    searchInput.addEventListener('input', filterServices);
-    filterSelect.addEventListener('change', filterServices);
-  </script>
-</body>
-</html>
+    <p>
+      <a href="https://instagram.com/" target="_blank">📸 Instagram</
