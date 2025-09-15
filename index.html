@@ -12,16 +12,38 @@
       background: #fafafa;
       color: #333;
     }
+    /* Sticky Header */
     header {
       background: #8e44ad;
       color: white;
       padding: 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
       margin: 0;
       font-size: 2em;
     }
+    header p {
+      margin: 5px 0 0;
+    }
+    /* Back-to-top button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: #8e44ad;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1000;
+    }
+    /* Search & Filter */
     .search-filter {
       display: flex;
       justify-content: center;
@@ -34,6 +56,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    /* Services Grid */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -47,6 +70,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.2s;
+      cursor: pointer;
     }
     .card:hover {
       transform: scale(1.05);
@@ -64,6 +88,40 @@
       color: #8e44ad;
       font-weight: bold;
     }
+    /* Slider */
+    .slider {
+      position: relative;
+      max-width: 100%;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    /* Slider buttons */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Find Us Section */
     .find-us {
       padding: 20px;
       text-align: center;
@@ -79,50 +137,122 @@
       border: 0;
       border-radius: 10px;
     }
-    .whatsapp-btn {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.2em;
-      margin: 20px 0;
-    }
-    .reviews {
+    /* Contact Form */
+    .contact {
       padding: 20px;
-      background: #f9f9f9;
+      background: #fff;
       text-align: center;
     }
-    .reviews h2 {
-      color: #8e44ad;
-      margin-bottom: 10px;
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    footer {
-      background: #333;
+    .contact input, .contact textarea {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    .contact button {
+      padding: 10px;
+      background: #8e44ad;
       color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Testimonials */
+    .testimonials {
       padding: 20px;
+      background: #f0f0f0;
       text-align: center;
     }
-    footer p, footer a {
-      margin: 5px 0;
-      color: white;
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .testimonial-card p {
+      font-style: italic;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0;
+    }
+    .social-links a {
       text-decoration: none;
+      font-size: 24px;
+    }
+    /* Promotions */
+    .promo {
+      background: #f39c12;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+    }
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>BIGLAMBA Salon</h1>
     <p>Hair, Nails & Beauty Services</p>
   </header>
 
-  <!-- WhatsApp Book Now Button -->
- <section style="text-align:center;">
-  <a href="https://wa.me/2347040748910" target="_blank" class="whatsapp-btn">
-    💬 Book Now on WhatsApp
-  </a>
-</section>
+  <!-- Back to top button -->
+  <div id="backToTop">&#8679;</div>
+
+  <!-- Promotion Banner -->
+  <div class="promo">
+    🌟 This Week: 20% Off on All Hairstyles! 🌟
+  </div>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="https://i.postimg.cc/RVYBcwkY/9aacbea19d9f381e062da34e2eb88e6d.jpg" alt="Braids">
+      <img src="https://i.postimg.cc/bvtkzHPf/straight-back-cornrows-stitch-and-two-buns-1-1.jpg" alt="Cornrows">
+      <img src="https://i.postimg.cc/50N6GwsV/5c5ba0bea8d873e2b550dc52f9c4e7da.jpg" alt="Wig Installation">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
 
   <!-- Search & Filter -->
   <div class="search-filter">
@@ -138,79 +268,192 @@
 
   <!-- Services Grid -->
   <div class="services" id="services">
-    <!-- Hairstyles -->
-    <div class="card" data-category="hair">
+    <div class="card" data-category="hair" data-details="Price: ₦8,000 | Time: 2 hours | Materials: Extensions, gel">
       <img src="https://i.postimg.cc/RVYBcwkY/9aacbea19d9f381e062da34e2eb88e6d.jpg" alt="Braids">
       <h3>Braids</h3>
       <p class="price">₦8,000</p>
     </div>
-    <div class="card" data-category="hair">
+    <div class="card" data-category="hair" data-details="Price: ₦6,500 | Time: 1.5 hours | Materials: Cornrow comb, gel">
       <img src="https://i.postimg.cc/bvtkzHPf/straight-back-cornrows-stitch-and-two-buns-1-1.jpg" alt="Cornrows">
       <h3>Cornrows</h3>
       <p class="price">₦6,500</p>
     </div>
-    <div class="card" data-category="hair">
+    <div class="card" data-category="hair" data-details="Price: ₦12,000 | Time: 3 hours | Materials: Wig, comb, gel">
       <img src="https://i.postimg.cc/50N6GwsV/5c5ba0bea8d873e2b550dc52f9c4e7da.jpg" alt="Wig Installation">
       <h3>Wig Installation</h3>
       <p class="price">₦12,000</p>
     </div>
-
     <!-- Men’s Cuts -->
-    <div class="card" data-category="men">
+    <div class="card" data-category="men" data-details="Price: ₦3,500 | Time: 30 mins | Materials: Clippers">
       <img src="https://i.postimg.cc/Gpj4qMJK/7e987bfe73cca34d0a92382220b11a09.jpg" alt="Fade Cut">
       <h3>Fade Cut</h3>
       <p class="price">₦3,500</p>
     </div>
-    <div class="card" data-category="men">
+    <div class="card" data-category="men" data-details="Price: ₦2,500 | Time: 20 mins | Materials: Beard trimmer">
       <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" alt="Beard Grooming">
       <h3>Beard Grooming</h3>
       <p class="price">₦2,500</p>
     </div>
-
     <!-- Nails & Pedicure -->
-    <div class="card" data-category="nails">
+    <div class="card" data-category="nails" data-details="Price: ₦7,000 | Time: 1 hour | Materials: Acrylic tips, polish">
       <img src="https://i.postimg.cc/dtzZ1ZV2/dd24a7828608e21dfc78b30909eebe1e.jpg" alt="Acrylic Nails">
       <h3>Acrylic Nails</h3>
       <p class="price">₦7,000</p>
     </div>
-    <div class="card" data-category="nails">
+    <div class="card" data-category="nails" data-details="Price: ₦5,000 | Time: 45 mins | Materials: Polish, scrub">
       <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3" alt="Pedicure">
       <h3>Pedicure</h3>
       <p class="price">₦5,000</p>
     </div>
-
     <!-- Makeup & Beauty -->
-    <div class="card" data-category="beauty">
+    <div class="card" data-category="beauty" data-details="Price: ₦15,000 | Time: 3 hours | Materials: Makeup kit">
       <img src="https://i.postimg.cc/Njm9rGKW/53f4202a6345b62a5da4368beddfbcf8.jpg" alt="Bridal Makeup">
       <h3>Bridal Makeup</h3>
       <p class="price">₦15,000</p>
     </div>
-    <div class="card" data-category="beauty">
+    <div class="card" data-category="beauty" data-details="Price: ₦6,000 | Time: 1.5 hours | Materials: Makeup kit">
       <img src="https://i.postimg.cc/SK4XL08j/40a8999a572ff9ad33bd233885b8b035.jpg" alt="Casual Makeup">
       <h3>Casual Makeup</h3>
       <p class="price">₦6,000</p>
     </div>
   </div>
 
-  <!-- Customer Reviews Section -->
-  <section class="reviews">
-    <h2>Customer Reviews</h2>
-    <p>⭐⭐⭐⭐⭐ “Best salon in town! My braids lasted so long.” – Chioma</p>
-    <p>⭐⭐⭐⭐ “Great service and friendly staff.” – Tunde</p>
-    <p>⭐⭐⭐⭐⭐ “I love my nails, thank you BIGLAMBA!” – Amaka</p>
+  <!-- Modal for Service Details -->
+  <div class="modal" id="serviceModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDetails"></p>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="testimonials">   
+<h2>What Our Clients Say</h2>
+    <div class="testimonial-card">
+      <p>"Best salon in town! My braids were perfect." – Ada</p>
+    </div>
+    <div class="testimonial-card">
+      <p>"I love their manicure service, highly recommend!" – Chika</p>
+    </div>
+    <div class="testimonial-card">
+      <p>"Professional and friendly staff, my hair looks amazing!" – Ife</p>
+    </div>
   </section>
 
-  <!-- Find Us Section with Map -->
+  <!-- Social Media Links -->
+  <section style="text-align:center;">
+  <a href="https://wa.me/2347040748910" target="_blank" class="whatsapp-btn">
+    💬 Book Now on WhatsApp
+  </a>
+    <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a>
+    <a href="https://www.tiktok.com/" target="_blank">🎵 TikTok</a>
+    <a href="https://www.facebook.com/" target="_blank">📘 Facebook</a>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mvgbllaw" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Find Us Section -->
   <section class="find-us">
     <h2>Find Us</h2>
-    <p>Click or move the map to see our location</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3154035873904!2d7.0658163!3d6.2220768999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104382f1255302e1%3A0x6526ad545c883b6c!2sKizzy%20Iconic%20Unisex%20Salon!5e0!3m2!1sen!2sng!4v1757927602393!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3154035873904!2d7.0658163!3d6.2220768999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104382f1255302e1%3A0x6526ad545c883b6c!2sKizzy%20Iconic%20Unisex%20Salon!5e0!3m2!1sen!2sng!4v1757927602393!5m2!1sen!2sng" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
-  <!-- Footer with Social Media Links -->
+  <!-- Footer -->
   <footer>
     <p><strong>Address:</strong> 45 Beauty Avenue, Anambara ifite awka, Nigeria</p>
     <p><strong>Phone:</strong> +234 901 234 5678</p>
     <p><strong>Opening Hours:</strong> Mon-Sat (9am - 9pm), Sun (12pm - 6pm)</p>
-    <p>
-      <a href="https://instagram.com/" target="_blank">📸 Instagram</
+    <p>&copy; 2025 BIGLAMBA Salon. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Search & Filter
+    const searchInput = document.getElementById('search');
+    const filterSelect = document.getElementById('filter');
+    const serviceCards = document.querySelectorAll('.card');
+
+    function filterServices() {
+      const searchText = searchInput.value.toLowerCase();
+      const filterValue = filterSelect.value;
+
+      serviceCards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const category = card.getAttribute('data-category');
+
+        if ((filterValue === "all" || category === filterValue) &&
+            name.includes(searchText)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterServices);
+    filterSelect.addEventListener('change', filterServices);
+
+    // Service Modal
+    const modal = document.getElementById('serviceModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDetails = document.getElementById('modalDetails');
+    const closeBtn = document.querySelector('.close');
+
+    serviceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalTitle.textContent = card.querySelector('h3').textContent;
+        modalDetails.textContent = card.getAttribute('data-details');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if(e.target === modal) modal.style.display = 'none';
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Image Slider
+    let slideIndex = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = slides.children.length;
+
+    document.querySelector('.next').addEventListener('click', () => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    });
+
+    // Auto slider every 5 seconds
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }, 5000);
+  </script>
+</body>
+</html>
