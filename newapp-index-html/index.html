@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+    #chat-box {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+    }
+    .message {
+      padding: 5px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    .user {
+      background: #d1ffd1;
+      align-self: flex-end;
+    }
+    .server {
+      background: #d1e0ff;
+      align-self: flex-start;
+    }
+    #input-area {
+      display: flex;
+      padding: 10px;
+    }
+    #input-area input {
+      flex: 1;
+      padding: 8px;
+    }
+    #input-area button {
+      padding: 8px 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-box"></div>
+  <div id="input-area">
+    <input type="text" id="message" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message');
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      div.textContent = text;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = messageInput.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      messageInput.value = '';
+
+      // Send to backend
+      fetch("http://127.0.0.1:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      })
+      .then(res => res.json())
+      .then(data => addMessage(data.reply, 'server'))
+      .catch(() => addMessage("Error: cannot reach server", 'server'));
+    }
+  </script>
+</body>
+</html>

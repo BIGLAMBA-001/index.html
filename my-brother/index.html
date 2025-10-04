@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Project Checklist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    small {
+      display: none;
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background: #2575fc;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      border: 3px solid #fff;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Website Project Checklist</h1>
+    <form id="project-form" action="https://formspree.io/f/mvgbllaw" method="POST">
+      
+      <h3>1. General Information</h3>
+      <label>Your Full Name</label>
+      <input type="text" name="Name" id="fullname" required placeholder="e.g. John Michael Smith">
+      <small id="name-error">⚠️ Please enter at least first and last name.</small>
+      
+      <label>Email</label>
+      <input type="email" name="Email" id="email" required>
+      <small id="email-error">⚠️ Please enter a valid email address.</small>
+
+      <label>Business/Brand Name</label>
+      <input type="text" name="Business Name">
+
+      <label>Do you already have a domain?</label>
+      <select name="Domain">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <h3>2. Type of Website</h3>
+      <label>Website Type</label>
+      <select name="Website Type">
+        <option>Portfolio</option>
+        <option>Business</option>
+        <option>Blog</option>
+        <option>E-commerce</option>
+        <option>Landing Page</option>
+        <option>Other</option>
+      </select>
+
+      <label>Main Purpose</label>
+      <textarea name="Purpose"></textarea>
+
+      <h3>3. Content</h3>
+      <label>Pages Needed</label>
+      <textarea name="Pages Needed" placeholder="Home, About, Services, Contact..."></textarea>
+
+      <label>Do you have images, logo, or videos?</label>
+      <select name="Media">
+        <option>Yes</option>
+        <option>No</option>
+        <option>Need Help</option>
+      </select>
+
+      <h3>4. Design & Style</h3>
+      <label>Color Preferences</label>
+      <input type="text" name="Colors">
+
+      <label>Style</label>
+      <select name="Style">
+        <option>Modern</option>
+        <option>Minimal</option>
+        <option>Professional</option>
+        <option>Playful</option>
+        <option>Creative</option>
+        <option>Corporate</option>
+      </select>
+
+      <label>Example Websites</label>
+      <textarea name="Example Websites"></textarea>
+
+      <h3>5. Features & Functionality</h3>
+      <label>Required Features</label>
+      <textarea name="Features" placeholder="Contact form, blog, shop, booking system..."></textarea>
+
+      <h3>6. Technical & Maintenance</h3>
+      <label>Preferred Platform</label>
+      <select name="Platform">
+        <option>Custom Code (HTML, CSS, JS)</option>
+        <option>WordPress</option>
+        <option>Wix</option>
+        <option>Squarespace</option>
+        <option>Other</option>
+      </select>
+
+      <label>Who will update the site?</label>
+      <select name="Maintenance">
+        <option>Me (Client)</option>
+        <option>My Team</option>
+        <option>You (Developer)</option>
+      </select>
+
+      <h3>7. Timeline & Budget</h3>
+      <label>Target Launch Date</label>
+      <input type="datetime-local" name="Launch Date" id="launch-date" required>
+      <small id="date-error">⚠️ </small>
+
+      <label>Budget Range</label>
+      <input type="text" name="Budget" id="budget" placeholder="Enter a number (e.g. 500)">
+      <small id="budget-error">⚠️ Please enter a valid number.</small>
+
+      <br><br>
+      <button type="submit" id="submit-btn">
+        <div class="spinner" id="spinner"></div>
+        <span id="btn-text">Submit Checklist</span>
+      </button>
+    </form>
+
+    <div class="message" id="form-message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("project-form");
+    const btn = document.getElementById("submit-btn");
+    const spinner = document.getElementById("spinner");
+    const btnText = document.getElementById("btn-text");
+    const message = document.getElementById("form-message");
+
+    const fullname = document.getElementById("fullname");
+    const nameError = document.getElementById("name-error");
+
+    const email = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+
+    const budget = document.getElementById("budget");
+    const budgetError = document.getElementById("budget-error");
+
+    const launchDate = document.getElementById("launch-date");
+    const dateError = document.getElementById("date-error");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      let valid = true;
+
+      // ✅ Full name validation (at least 2 words)
+      let nameParts = fullname.value.trim().split(" ");
+      if (nameParts.length < 2) {
+        nameError.style.display = "block";
+        valid = false;
+      } else {
+        nameError.style.display = "none";
+      }
+
+      // ✅ Email validation
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+      if (!emailPattern.test(email.value.trim())) {
+        emailError.style.display = "block";
+        valid = false;
+      } else {
+        emailError.style.display = "none";
+      }
+
+      // ✅ Budget must be a number
+      if (budget.value.trim() !== "" && isNaN(budget.value.trim())) {
+        budgetError.style.display = "block";
+        valid = false;
+      } else {
+        budgetError.style.display = "none";
+      }
+
+      // ✅ Date format check YYYY-MM-DD
+      const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+      if (launchDate.value.trim() !== "" && !datePattern.test(launchDate.value.trim())) {
+        dateError.style.display = "block";
+        valid = false;
+      } else {
+        dateError.style.display = "none";
+      }
+
+      if (!valid) return; // Stop if validation fails
+
+      // Show loading state
+      btn.disabled = true;
+      spinner.style.display = "inline-block";
+      btnText.textContent = "Sending...";
+
+      try {
+        let response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          message.textContent = "✅ Thank you! Your information has been sent.";
+          message.className = "message success";
+          form.reset();
+        } else {
+          message.textContent = "❌ Oops! Something went wrong. Try again.";
+          message.className = "message error";
+        }
+      } catch (error) {
+        message.textContent = "❌ Network error. Please check your connection.";
+        message.className = "message error";
+      }
+
+      // Reset button
+      btn.disabled = false;
+      spinner.style.display = "none";
+      btnText.textContent = "Submit Checklist";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First JS</title>
+</head>
+<body>
+  <h1 id="title">Hello!</h1>
+  <button id="myBtn">Click me</button>
+
+  <script>
+    const button = document.getElementById("myBtn",);
+    const title = document.getElementById("title",);
+    button.addEventListener("click", function ()
+    {
+      if (title.textContent === "Hello!")
+      {
+        title.textContent = "wow you just clicked on me";
+      }
+      else{
+       title.textContent = "Hello!";
+      }
+    });
+  </script>
+</body>
+</html>

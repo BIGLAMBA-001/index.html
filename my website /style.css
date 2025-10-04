@@ -1,0 +1,179 @@
+/* ---------------------------
+   Reset
+   --------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  list-style: none;
+}
+
+/* ---------------------------
+   Root / hero layout
+   --------------------------- */
+/* default aside width (desktop) */
+.hero {
+  --aside-width: 250px;
+  min-height: 100vh;
+  background: url("1758300657688.jpg") no-repeat center/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------------------------
+   ASIDE (sidebar)
+   --------------------------- */
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: var(--aside-width);
+  padding: 12px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  box-shadow: 2px 0 20px rgba(0,0,0,0.25);
+  transition: width 240ms ease, transform 240ms ease;
+  z-index: 50;
+}
+
+aside h1{
+  color: #fff;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+aside ul li {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin: 8px 0;
+}
+
+aside a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+
+aside a i {
+  font-size: 1.4rem;
+  width: 36px; /* keep icons aligned */
+  text-align: center;
+  margin-right: 8px;
+}
+
+/* the text label next to each icon */
+.link-text {
+  font-size: 1.02rem;
+  white-space: nowrap;
+}
+
+/* ---------------------------
+   NAV (top)
+   --------------------------- */
+nav {
+  position: fixed;
+  top: 12px;
+  left: var(--aside-width);
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 60;
+}
+
+/* hamburger only visible on small screens */
+.hamburger {
+  display: none; /* shown via media query */
+  font-size: 1.2rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+}
+
+/* nav main menu */
+nav .main-menu {
+  display:flex;
+  gap: 1rem;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 28px;
+}
+
+nav .main-menu a { color: #000; font-weight:700; text-decoration:none; padding:8px; }
+
+/* sign in/out buttons */
+nav .btn button {
+  padding: 8px 12px;
+  margin-left: 6px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+nav .btn button:nth-child(2){ background:#6b6b6b; color:#fff; }
+
+/* ---------------------------
+   MAIN CONTENT (center area)
+   --------------------------- */
+.content {
+  /* shift content to the right by the sidebar width */
+  margin-left: var(--aside-width);
+  width: calc(100% - var(--aside-width));
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 12px;
+}
+
+/* profile circle & text */
+.content img { width: 180px; height: 180px; border-radius: 50%; border:6px solid #fff; }
+.content h1 { font-size: 2.6rem; color: whitesmoke; margin-top: 12px; }
+.content p { margin-top: 8px; font-weight:700; background: rgba(0,0,0,0.4); color:#fff; padding:8px 12px; border-radius:6px; }
+
+/* ---------------------------
+   RESPONSIVE BEHAVIOR
+   --------------------------- */
+@media (max-width: 900px) {
+  /* make the sidebar compact by default (icons only) */
+  .hero { --aside-width: 72px; }
+
+  /* show hamburger on small screens */
+  .hamburger { display: inline-block; }
+
+  /* hide text labels when compact */
+  aside .link-text { display: none; }
+
+  /* nav & content still shift by the compact width */
+  nav { left: var(--aside-width); right: 12px; }
+  .content { margin-left: var(--aside-width); width: calc(100% - var(--aside-width)); }
+
+  /* small tweaks to content sizes */
+  .content img { width: 160px; height: 160px; }
+  .content h1 { font-size: 2.2rem; }
+}
+
+/* when user toggles to expand the aside on small screens */
+.hero.show-aside {
+  /* expanded width when toggled */
+  --aside-width: 240px;
+}
+
+/* show labels when expanded */
+.hero.show-aside aside .link-text { display: inline-block; }
+
+/* optional small visual niceties */
+aside a:hover { background: rgba(255,255,255,0.04); border-radius:6px; }

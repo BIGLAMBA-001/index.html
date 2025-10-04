@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>my favorite</title>
+  <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+    font-family: sans-serif;
+}
+
+.container {
+    padding: 30px;
+    background-color: #e0e0e0;
+    border-radius: 30px;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+}
+
+.form-header button {
+    background: #e0e0e0;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px  #ffffff;
+}
+
+.form-header button.active {
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    color: #4a4a4a;
+}
+
+.login-form {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    padding: 10px 15px;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 10px;
+}
+
+.input-group .icon {
+    font-size: 18px;
+    color: #888;
+}
+
+.login-btn, .social-icon {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #e0e0e0;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    margin-top: 20px;
+}
+
+.login-btn {
+    background: linear-gradient(145deg, #6c5ce7, #5c4ce7);
+    color: white;
+}
+
+.social-login p {
+    color: gray;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+
+  </style>
+    
+  </style>
+</head>
+
+<body>
+<div class="container">
+<div class="form-header">
+<button class="active">Log</butto>
+<button>Sign Up</button>
+</div>
+<div class="login-form">
+<div class="form-title">Login</dil>
+        <div class="input-group">
+            <span class="icon">📧</span>
+            <input type="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <span class="icon">🔒</span>
+            <input type="password" placeholder="Password" required>
+            <span class="icon">👁️</span>
+        </div>
+        <button class="login-btn">Login</button>
+        <div class="social-login">
+            <p>Or continue with:</p>
+            <div class="social-icons">
+                <button class="social-icon">f</button>
+                <button class="social-icon">G</button>
+                <button class="social-icon">👻</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

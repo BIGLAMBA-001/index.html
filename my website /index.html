@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Coding</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url("1758300657688.jpg") no-repeat center/cover;
+      display: flex;
+    }
+
+    /* Sidebar (hidden by default on mobile) */
+    aside {
+      width: 220px;
+      height: 100vh;
+      background: rgba(255,255,255,0.1);
+   backdrop-filter: blur(12px);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding: 20px 15px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      left: -240px;
+      top: 0;
+      transition: 0.4s ease;
+      z-index: 1000;
+    }
+
+    aside.active {
+      left: 0;
+    }
+
+    aside h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.2);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    aside ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    aside ul li {
+      margin: 12px 0;
+    }
+
+    aside ul li a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    aside ul li a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateX(8px);
+    }
+
+    aside ul li i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Toggle Button (3 dots) */
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-left: auto;
+      width: 100%;
+    }
+
+    /* Top Menu */
+    nav {
+      background: white;
+      padding: 12px 30px;
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: red;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: black;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      background: yellow;
+    }
+    
+    }
+
+    .main img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 20px;
+    }
+
+    .main h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .main p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .buttons button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buttons button:first-child {
+      background: white;
+      color: black;
+    }
+
+    .buttons button:last-child {
+      background: gray;
+      color: white;
+    }
+
+    .buttons button:hover {
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+      transform: scale(1.05);
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .remember input {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Toggle Button -->
+  <div class="toggle-btn" id="menu-btn">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h1>James Coding</h1>
+    <ul>
+      <li><a href="https://biglamba-001.github.io/index.html/"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#"><i class="fa-solid fa-address-card"></i> About</a></li>
+      <li><a href="#"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+      <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+      <li><a href="https://youtube.com/@usulortochukwu7721?si=zNNCbVg2jI5JJeJp"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+      <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Top Menu -->
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <img src="Modern-house-avi-werd-unsplash.jpg" alt="Logo">
+    <h1>come let code</h1>
+    <p>Let’s explore the world of development</p>
+
+    <div class="buttons">
+      <button>Sign Up</button>
+      <button>Sign in</button>
+      
+    </div>
+
+    <div class="remember">
+      <input type="checkbox" id="remember">
+      <label for="remember">Remember me</label>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

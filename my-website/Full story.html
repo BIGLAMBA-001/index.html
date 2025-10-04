@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>my student page</title>
+      <style>
+        /* === GENERAL STYLING === */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          background: #f8f9fa;
+          color: #333;
+        }
+
+        header {
+          text-align: center;
+          background: #007BFF;
+          color: white;
+          padding: 15px;
+          border-radius: 8px;
+        }
+
+        nav {
+          text-align: center;
+          margin: 15px 0;
+        }
+
+        nav a {
+          margin: 0 10px;
+          text-decoration: none;
+          color: #007BFF;
+          font-weight: bold;
+        }
+
+        nav a:hover {
+          color: darkblue;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 50%;
+          margin: 10px 0;
+        }
+
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+
+        th {
+          background: #007BFF;
+          color: white;
+        }
+
+        form {
+          margin-top: 20px;
+          padding: 15px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea {
+          margin-bottom: 10px;
+          padding: 8px;
+          width: 90%;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        input[type="submit"] {
+          background: #007BFF;
+          color: white;
+          cursor: pointer;
+          border: none;
+        }
+
+        input[type="submit"]:hover {
+          background: darkblue;
+        }
+
+        details {
+          margin-top: 20px;
+          padding: 10px;
+          background: #f1f1f1;
+          border-radius: 6px;
+        }
+
+        img {
+          border-radius: 10px;
+          margin-top: 10px;
+        }
+
+        video, audio {
+          margin-top: 10px;
+          border: 2px solid #007BFF;
+          border-radius: 6px;
+        }
+
+        button {
+          padding: 8px 12px;
+          margin: 10px 0;
+          background: #28a745;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background: #218838;
+        }
+      </style>
+   </head>
+   <body>
+      <header>
+          <h1>my student information</h1>
+          <p>welcome to my student information page</p>
+      </header> 
+      <nav>
+          <a href ="#">home</a>|
+          <a href="#">about </a>|
+          <a href="#">contact</a>
+      </nav>
+      <hr>
+      <h3>for more information about James coding college</h3>
+      <hr>
+      <ul>
+        <li><a href="mailto:usulortochukwu57@gmail.com">Email</a><br></li>
+        <li><a href="https://www.snapchat.com/add/pepe30031979?share_id=NKEiQ0v7oco&locale=es-ES">Snapchat</a><br></li>
+        <li><a href="https://+2347040748910">WhatsApp</a></li>
+      </ul>
+
+      <h3>student names</h3>
+      <ul>
+        <li><b>Livonia Gloria ani</b></li>
+      </ul>
+      <p>my name is Livonia Gloria ani. im a student of James  College, im into (<b>html</b>,<b>css</b>,<b>js</b>)</p>
+      <img id="studentPhoto" src="https://i.postimg.cc/zvZm1tMb/shes-an-avid-reader.jpg" alt="my photo" width="200"><br>
+      <button onclick="togglePhoto()">Show/Hide Photo</button>
+      
+      <p><b>Livonia Gloria ani course score</b></p>
+      <table>
+          <tr>
+              <th>subject</th>
+              <th>score</th>
+          </tr>
+          <tr>
+              <td>html</td>
+              <td>90</td>
+          </tr>
+          <tr>
+              <td>css</td>
+              <td>50</td>
+          </tr>
+          <tr>
+              <td>js</td>
+              <td>35</td>
+          </tr>
+      </table>
+
+      <p><b>courses energy</b></p>
+      <p>html: <progress value="90" max="100"></progress></p>
+      <p>css: <progress value="50" max="100"></progress></p>
+      <p>js: <progress value="35" max="100"></progress></p>
+
+      <h3>exam grade</h3>
+      <p>overall performance: <meter value="0.5">80%</meter></p>
+
+      <ul>
+        <li><b>Jennifer martin omah</b></li>
+      </ul>
+      <p>my name is Jennifer martin omah im a student of James College im into:(<b>html</b>,<b>css</b>,<b>js</b>)</p>
+      <img src ="https://i.postimg.cc/XJyMmS26/image-brunette-african-american-woman-260nw-1446158918.jpg" alt="my student" width="200"><br><br>
+      
+      <p><b>Jennifer martin omah courses scores</b></p>  
+      <table>
+          <tr>
+              <th>subject</th>
+              <th>scores</th>
+          </tr>
+          <tr>
+              <td>html</td>
+              <td>100</td>
+          </tr>
+          <tr>
+              <td>css</td>
+              <td>85</td>
+          </tr>
+          <tr>
+              <td>js</td>
+              <td>75</td>
+          </tr>
+      </table>
+
+      <p><b>courses energy</b></p>
+      <p>html: <progress value="100" max="100"></progress></p>
+      <p>css: <progress value="85" max="100"></progress></p>
+      <p>js: <progress value="75" max="100"></progress></p>
+
+      <h3>exam grade </h3>
+      <p>overall performance: <meter value="0.9">100%</meter></p>
+
+      <h3><u>extra example</u></h3>
+      <i>
+          <p><b>html example</b>: hyper Text markup language</p>
+          <p><b>html meaning</b>: It is a language used to structure content on the web.</p>
+          <p><b>what it works</b>: It Provides the skeleton of websites (text, images, links, forms).</p>
+          <p><b>css example</b>: cascading style sheets</p>
+          <p><b>css meaning</b>: it is a language for styling and designing websites.</p>
+          <p><b>what it works</b>: it makes websites look beautiful (colors, fonts, layout, responsiveness).</p>
+          <p><b>js example</b>: JavaScript</p>
+          <p><b>js meaning</b>: It is a programming language for the web.</p>
+          <p><b>what it works</b>: It adds interactivity (buttons working, dropdowns, animations, forms validation, etc.).</p>
+      </i>
+
+      <h3>the student registration form</h3>
+      <form id="studentForm">
+          <label for="fullname">full name</label><br>
+          <input type="text" id="fullname" placeholder="e.g William martin web" required><br>
+
+          <label for="dob">date of birth</label><br>
+          <input type="date" id="dob" name="dob" required><br>
+
+          <label for="phone">phone number</label><br>
+          <input type="tel" id="phone" name="phone" placeholder ="e.g +2347040******" required><br>
+
+          <label for="email">email</label><br>
+          <input type="email" id="email" name="email" placeholder="e.g WilliamMartin98@gmail.com" required><br>
+
+          <label for="password">password</label><br>
+          <input type="password" id="password" name="password"placeholder="e.g MonddY23." required><br><br>
+
+          <b><i><label>Gender</label></i></b><br>
+          <b><i><input type="radio" name="gender"> male</i></b><br>
+          <b><i><input type="radio" name="gender"> female</i></b><br><br>
+
+          <b><i><label for="course">select course</label></i></b><br>
+          <select id="course" name="course">
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>JavaScript</option>
+          </select><br>
+
+          <label for="country">country</label><br>
+          <select id="country">
+              <option>Nigeria</option>
+              <option>Ghana</option>
+              <option>Egypt</option>
+              <option>South Africa</option>
+          </select><br>
+
+          <label for="state">state</label><br>
+          <select id="state">
+              <option>Ebonyi</option>
+              <option>Enugu</option>
+              <option>Imo</option>
+              <option>Abia</option>
+              <option>Anambara</option>
+          </select><br>
+
+          <label for="lga">LGA</label><br>
+          <select id="lga">
+              <option>Abakaliki</option>
+              <option>Afikpo North</option>
+              <option>Afikpo South</option>
+              <option>Ebonyi</option>
+              <option>Ezza North</option>
+              <option>Ezza South</option>
+              <option>Ikwo</option>
+              <option>Ishielu</option>
+              <option>Ivo</option>
+              <option>Izzi</option>
+              <option>Ohaozara</option>
+              <option>Ohaukwu</option>
+              <option>Onicha</option>
+              <option>Abakaliki</option>
+          </select><br>
+  <b><i>select your hobbies</i></b><br>
+  <i><u>
+  <input type="checkbox">codin<b>
+  <input type="checkbox">playi<b>
+  <input type="checkbox">readi<b>
+  <input type="checkbox">sleep<b>
+  </u></i><br>
+
+  <textarea rows="4" cols="3>write something</textarea><br>
+          <input type="submit" value="Register" name="register"><br><br>
+
+          <hr>
+          <h3><u>MY PHOTO</u></h3>
+          <img src="https://picsum.photos/200" alt="my photo" width="200"><br>
+
+          <h3><u>MY VIDEO</u></h3>
+          <video controls width="300">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              your browser can not play this video.      
+          </video>
+
+          <h3><u>MY AUDIO</u></h3>
+          <audio controls>
+              <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3">
+              your browser can not play audio 
+          </audio>
+      </form>
+
+      <details>
+          <summary><b>click to expand</b></summary>
+          I thank you God for everything With you everything is possible Thank you
+      </details>
+
+      <!-- === JAVASCRIPT === -->
+      <script>
+        // Toggle photo visibility
+        function togglePhoto() {
+          const photo = document.getElementById("studentPhoto");
+          if (photo.style.display === "none") {
+            photo.style.display = "block";
+          } else {
+            photo.style.display = "none";
+          }
+        }
+
+        // Handle form submission
+        const form = document.getElementById("studentForm");
+        form.addEventListener("submit", function(event) {
+          event.preventDefault(); // stop actual submit for now
+          const name = document.getElementById("fullname").value;
+          alert("🎉 Thank you " + name + " for registering!");
+        });
+      </script>
+   </body>
+</html>

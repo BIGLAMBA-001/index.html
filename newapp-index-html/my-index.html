@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Project</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body{
+      background-color: whitesmoke;
+      color: black;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    h1{
+      background: blue;
+      padding: 12px;
+      margin: 3px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 5px;
+    }
+    
+    header{
+      background: blue;
+      padding: 20px;
+      margin: 3px;
+      border-radius: 19px;
+    }
+    
+    ul{
+     display: flex;
+     justify-content: center;
+     gap: 3rem;
+     background: white;
+     padding: 9px;
+     margin: 12px;
+     border-radius: 13px;
+     font-size: 0.9rem;
+    }
+    
+    
+    ul li a{
+      text-decoration: none;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 35px;
+      transition: 0.3s;
+    }
+    
+    ul li a:hover{
+      background: blue;
+      color: white;
+      transform: scale(1.1);
+    }
+ 
+    p{
+      font-weight: bold;
+    }
+    
+  button{
+    background: blue;
+    color: white;
+    padding: 2px;
+    margin: 9px;
+    border-radius: 9px;
+  }
+  
+  
+  footer{
+    background: gray;
+    padding: 40px;
+    margin: 9px;
+  }
+  
+  
+  section{
+   margin: 12px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">MySite</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to My Website</h2>
+      <p>This is a short intro text that explains what the site is about.</p>
+      <button class="cta">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  
+  <section class="features">
+    <div class="container">
+      <div class="feature">
+        <h3>Feature One</h3>
+        <p>Short description here.</p>
+      </div>
+      <div class="feature">
+        <h3>Feature Two</h3>
+        <p>Short description here.</p>
+      </div>
+      <div class="feature">
+        <h3>Feature Three</h3>
+        <p>Short description here.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MySite. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
